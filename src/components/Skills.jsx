@@ -1,20 +1,36 @@
 const Skills = () => {
   const skills = [
-    { name: "Testing Funcional", category: "qa", level: 90 },
-    { name: "QA Manual", category: "qa", level: 85 },
-    { name: "PHP", category: "backend", level: 75 },
-    { name: "JavaScript", category: "frontend", level: 80 },
-    { name: "Bootstrap", category: "frontend", level: 85 },
-    { name: "MySQL", category: "database", level: 70 },
-    { name: "Git", category: "tools", level: 90 },
-    { name: "GitHub", category: "tools", level: 90 },
-    { name: "GitHub Pages", category: "tools", level: 85 },
-    { name: "HTML5", category: "frontend", level: 95 },
-    { name: "CSS3", category: "frontend", level: 90 },
-    { name: "Responsive Design", category: "frontend", level: 85 },
-    { name: "API Integration", category: "backend", level: 80 },
-    { name: "CRUD Operations", category: "backend", level: 85 }
+    { name: "Testing Funcional", category: "qa", level: "Básico" },
+    { name: "QA Manual", category: "qa", level: "Básico" },
+    { name: "PHP", category: "backend", level: "Básico" },
+    { name: "JavaScript", category: "frontend", level: "Básico" },
+    { name: "Bootstrap", category: "frontend", level: "Intermedio" },
+    { name: "Tailwind CSS", category: "frontend", level: "Básico" },
+    { name: "MySQL", category: "database", level: "Básico" },
+    { name: "phpMyAdmin", category: "database", level: "Básico" },
+    { name: "Git", category: "tools", level: "Intermedio" },
+    { name: "GitHub", category: "tools", level: "Intermedio" },
+    { name: "GitHub Pages", category: "tools", level: "Intermedio" },
+    { name: "HTML5", category: "frontend", level: "Intermedio" },
+    { name: "CSS3", category: "frontend", level: "Intermedio" },
+    { name: "Responsive Design", category: "frontend", level: "Básico" },
+    { name: "API Integration", category: "backend", level: "Básico" },
+    { name: "CRUD Operations", category: "backend", level: "Básico" }
   ]
+
+  // Función para obtener el color del nivel
+  const getLevelColor = (level) => {
+    switch(level) {
+      case "Básico":
+        return "text-yellow-600 dark:text-yellow-400 bg-yellow-100 dark:bg-yellow-900/30"
+      case "Intermedio":
+        return "text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30"
+      case "Avanzado":
+        return "text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30"
+      default:
+        return "text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-900/30"
+    }
+  }
 
   const categoryInfo = {
     qa: { 
@@ -103,24 +119,16 @@ const Skills = () => {
                 <div className={`w-16 h-1 ${categoryInfo[category].bgClass} mx-auto rounded-full`}></div>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {categorySkills.map((skill, index) => (
                   <div key={skill.name} className="group">
-                    <div className="flex justify-between items-center mb-2">
+                    <div className="flex justify-between items-center p-3 rounded-lg bg-gray-50/50 dark:bg-gray-700/50 hover:bg-gray-100/50 dark:hover:bg-gray-600/50 transition-all duration-300">
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                         {skill.name}
                       </span>
-                      <span className={`text-xs font-semibold ${categoryInfo[category].textClass}`}>
-                        {skill.level}%
+                      <span className={`text-xs font-semibold px-3 py-1 rounded-full ${getLevelColor(skill.level)}`}>
+                        {skill.level}
                       </span>
-                    </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-                      <div 
-                        className={`h-2 ${categoryInfo[category].bgClass} rounded-full transition-all duration-1000 ease-out group-hover:animate-pulse`}
-                        style={{ width: `${skill.level}%` }}
-                        data-aos="slide-right"
-                        data-aos-delay={categoryIndex * 100 + index * 50}
-                      ></div>
                     </div>
                   </div>
                 ))}

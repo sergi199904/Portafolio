@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-500 via-accent-500 to-primary-700 text-white relative overflow-hidden"
+      className="min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary-500 via-accent-500 to-primary-700 text-white relative overflow-hidden"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-blue-800/10"></div>
@@ -23,11 +23,6 @@ const Hero = () => {
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div data-aos="fade-up">
-          <div className="mb-8">
-            <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-white/20 to-white/5 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
-              <span className="text-4xl font-bold text-white">SO</span>
-            </div>
-          </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
             Sergio Oyarzo
           </h1>
